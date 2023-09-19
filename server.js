@@ -3,6 +3,7 @@
  * ******************************************/
 const express = require("express")
 const env = require("dotenv").config()
+const client = require("./database/")
 const app = express()
 
 
