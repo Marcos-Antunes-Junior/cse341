@@ -25,7 +25,36 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/contacts/6516cd465fdea910013432b0 HTTP/1.1
+PUT http://localhost:3000/contacts/65183b42c78abcce5602c7d2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "email": "peter@parker.com",
+    "favoriteColor": "Green",
+    "birthday": "01/01/1990"
+}
+
+####
+DELETE http://localhost:3000/contacts/65183b42c78abcce5602c7d2
+
+
+
+####
+POST https://cse341web.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "email": "parker@peter.com",
+    "favoriteColor": "Green",
+    "birthday": "01/01/1990"
+}
+
+###
+PUT https://cse341web.onrender.com/contacts/65183be3427e3c17099cbe1d HTTP/1.1
 Content-Type: application/json
 
 {
@@ -37,4 +66,4 @@ Content-Type: application/json
 }
 
 ####
-DELETE http://localhost:3000/contacts/6516cd465fdea910013432b0
+DELETE https://cse341web.onrender.com/contacts/65183be3427e3c17099cbe1d
