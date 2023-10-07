@@ -8,6 +8,6 @@ router.use('/contacts', contacts);
 
 
 // Index Route
-//router.get("/", baseController.buildHome)
+router.get("/", baseController.buildHome)
 
 module.exports = router;
