@@ -20,7 +20,14 @@ const getDataById = async (req, res, next) => {
 }
 
 const createNewContact = async (req, res, next) => {
-const create = await mongodb.getDb().db().collection('contacts').insertOne(req.body)
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+const create = await mongodb.getDb().db().collection('contacts').insertOne(contact)
  if(create.acknowledged){
   res.status(201).json(create)
  } else {
@@ -31,7 +38,14 @@ const create = await mongodb.getDb().db().collection('contacts').insertOne(req.b
 const updateContact = async (req, res, next) => {
   const getId = req.params.id
   const id = new ObjectId(getId)
-  const update = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: id }, req.body)
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+  const update = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: id }, contact)
   console.log(update)
   if(update.modifiedCount > 0) {
   res.status(204).send()
