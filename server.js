@@ -38,7 +38,7 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 })
-.use('/contacts', contactsRoutes);
+.use('/', require('./routes'));
 
 
 mongodb.initDb((err, mongodb) => {
