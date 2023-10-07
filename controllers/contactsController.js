@@ -35,9 +35,9 @@ const updateContact = async (req, res, next) => {
   const update = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: id }, req.body)
   console.log(update)
   if(update.modifiedCount > 0) {
-    res.status(201).send()
+  res.status(204).send()
   } else {
-    res.status(500).json(update.error || 'Some error ocurred while updating the contact')
+  res.status(500).json(update.error || 'Some error ocurred while updating the contact')
   }
 }
 
@@ -46,7 +46,7 @@ const deleteContact = async (req, res, next) => {
   const id = new ObjectId(getId)
   const delContact = await mongodb.getDb().db().collection('contacts').deleteOne({_id: id}) 
   if(delContact){
-  res.status(200).send()
+  res.status(204).send()
   } else {
   res.status(500).json(delContact.error || 'Some error ocurred while deleting the contact')
   }
