@@ -12,11 +12,9 @@ const getData = async (req, res, next) => {
 
 const getDataById = async (req, res, next) => {
   const id = new ObjectId(req.params.id)
-  const result = await mongodb.getDb().db().collection('contacts').find({ _id: id })
-    result.toArray().then((lists) => {
+  const result = await mongodb.getDb().db().collection('contacts').findOne({ _id: id })
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  })  
+    res.status(200).json(result);
 }
 
 const createNewContact = async (req, res, next) => {
